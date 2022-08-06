@@ -5,28 +5,22 @@ import PropertyDetailForm from "../components/propertyDetailForm";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Realmarkably Copy Generator</title>
         <meta name="description" content="rock your jaw" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        <ul>
-          <Link href="/about">
-            <a>about</a>
-          </Link>
-        </ul>
-      </header>
+      {/* <main className={styles.main}> */}
 
-      <main className={styles.main}>
-        <h1 className="text-center text-6xl">
-          <code className="text-rose-400">Realmarkably</code>
-        </h1>
+      <h1 className="pt-64 text-6xl text-center">
+        <code className="text-rose-400">Realmarkably</code>
+      </h1>
 
+      <div className="container mx-auto w-1/2" id="propertyform">
         <PropertyDetailForm></PropertyDetailForm>
-      </main>
+      </div>
 
       <footer className={styles.footer}></footer>
     </div>
