@@ -12,8 +12,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <main className={styles.main}> */}
-
       <h1 className="pt-64 text-6xl text-center text-blue">
         <code>Realmarkably</code>
       </h1>
