@@ -4,9 +4,7 @@ class PropertyDetailForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: {
-        bedrooms: "",
-      },
+      values: {},
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,7 +16,19 @@ class PropertyDetailForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log("handling submit");
+    let prompt = "";
+    let propertyElements = document.querySelectorAll("input");
+    propertyElements.forEach(element => {
+      console.log(element);
+      if (element.type=="checkbox" && element.checked) {
+        prompt = prompt.concat(element.id + " ");
+      } else if (element.type=="text") {
+        prompt = prompt.concat(element.value + " " + element.id + "")
+      }
+
+
+    });
+    console.log("prompt = " + prompt);
   }
 
   render() {
@@ -38,7 +48,7 @@ class PropertyDetailForm extends React.Component {
                 type="text"
                 className="ml-2 mr-4 border border-gunmetal rounded-lg"
                 id="bedrooms"
-                value={this.state.values.bedrooms}
+
                 onChange={this.handleChange}
               />
             </label>
@@ -48,7 +58,7 @@ class PropertyDetailForm extends React.Component {
                 type="text"
                 className="ml-2 border border-gunmetal rounded-lg"
                 id="bathrooms"
-                value={this.state.values.bathrooms}
+
                 onChange={this.handleChange}
               />
             </label>
@@ -60,8 +70,8 @@ class PropertyDetailForm extends React.Component {
               <input
                 type="text"
                 className="ml-2 border border-gunmetal rounded-lg"
-                id="bedrooms"
-                value={this.state.values.zipcode}
+                id="zipcode"
+
                 onChange={this.handleChange}
               />
             </label>
@@ -72,7 +82,6 @@ class PropertyDetailForm extends React.Component {
               type="checkbox"
               className="mr-1"
               id="garage"
-              value={this.state.values.garage}
               onChange={this.handleChange}
             />
             Garage
@@ -82,7 +91,6 @@ class PropertyDetailForm extends React.Component {
               type="checkbox"
               className="ml-2 mr-1"
               id="floorplan"
-              value={this.state.values.openFloorplan}
               onChange={this.handleChange}
             />
           </label>
@@ -92,7 +100,6 @@ class PropertyDetailForm extends React.Component {
               type="checkbox"
               className="ml-2 mr-1"
               id="office"
-              value={this.state.values.office}
               onChange={this.handleChange}
             />
             Office
@@ -102,7 +109,6 @@ class PropertyDetailForm extends React.Component {
               type="checkbox"
               className="ml-2 mr-1"
               id="pool"
-              value={this.state.values.pool}
               onChange={this.handleChange}
             />
             Pool
@@ -112,17 +118,16 @@ class PropertyDetailForm extends React.Component {
               type="checkbox"
               className="ml-2 mr-1"
               id="garden"
-              value={this.state.values.garden}
               onChange={this.handleChange}
             />
             Garden
           </label>
           <br></br>
-          <input
-            type="submit"
+          <button
+            onClick={this.handleSubmit}
+            type="button"
             className="block mx-auto h-12 w-4/5 mt-12 border bg-teagreen"
-            value="Submit"
-          />
+          >Submit</button>
         </form>
 
         <textarea
