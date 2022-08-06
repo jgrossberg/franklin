@@ -14,8 +14,8 @@ export default function Home() {
 
       {/* <main className={styles.main}> */}
 
-      <h1 className="pt-64 text-6xl text-center">
-        <code className="text-rose-400">Realmarkably</code>
+      <h1 className="pt-64 text-6xl text-center text-blue">
+        <code>Realmarkably</code>
       </h1>
 
       <div className="container mx-auto w-1/2" id="propertyform">
