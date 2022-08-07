@@ -16,7 +16,7 @@ export default function Home() {
         <code>Realmarkably</code>
       </h1>
 
-      <div className="container mx-auto w-full" id="propertyform">
+      <div className="container mx-auto w-1/2" id="propertyform">
         <PropertyDetailForm></PropertyDetailForm>
       </div>
 
