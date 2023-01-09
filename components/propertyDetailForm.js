@@ -5,6 +5,7 @@ class PropertyDetailForm extends React.Component {
     super(props);
     this.state = {
       values: {},
+      copy: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,6 +15,25 @@ class PropertyDetailForm extends React.Component {
   handleChange(event) {
     console.log("handling change");
   }
+
+
+  fetchCopy(prompt) {
+    let response = '';
+    let data = '';
+    fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+         .then((response) => response.json())
+         .then((data) => {
+            console.log(data);
+            this.setState({
+              copy: data
+            })
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }
+
+
 
   handleSubmit(event) {
     let prompt = "";
@@ -28,7 +48,8 @@ class PropertyDetailForm extends React.Component {
 
 
     });
-    console.log("prompt = " + prompt);
+    
+    this.fetchCopy(prompt);
   }
 
   render() {
@@ -133,6 +154,7 @@ class PropertyDetailForm extends React.Component {
         <textarea
           label="output"
           placeholder="copy will appear here"
+          value={this.state.copy}
           className="mt-12 p-1 w-full border bg-lightgreen border-gunmetal rounded-xl"
         ></textarea>
       </div>
